@@ -1,0 +1,16 @@
+test/
+db/
+build/
+doc/
+.idea/
+*.iml
+node_modules/
+output
+*.log
+/src/webapp/doc/
+/package-lock.json
+/*.tgz
+/logs/
+/test/
+!/linkfuture-boot-0.0.1.tgz
+/report/

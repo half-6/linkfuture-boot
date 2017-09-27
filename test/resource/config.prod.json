@@ -1,0 +1,6 @@
+{
+  "debug":false
+  ,"static": {
+    "minify":true
+  }
+}

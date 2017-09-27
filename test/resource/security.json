@@ -1,0 +1,6 @@
+{
+   "mappings":[
+     {"pattern":"/admin/*","roles":["ADMIN"],"method":["get","post"]},
+     {"pattern":"/profile/*"}
+   ]
+}

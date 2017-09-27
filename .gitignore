@@ -1,0 +1,11 @@
+.idea/
+node_modules/
+output
+*.iml
+*.log
+/src/webapp/doc/
+/package-lock.json
+/*.tgz
+/logs/
+!/linkfuture-boot-0.0.1.tgz
+/report/

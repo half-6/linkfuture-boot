@@ -1,0 +1,9 @@
+{
+  "admin-global":{
+     "output" :"output/admin-global.v1.min.js"
+     ,"files": [
+          "libs/*.js"
+         ,"front/*.js"
+     ]
+  }
+}
