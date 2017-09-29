@@ -43,7 +43,21 @@ $lf.$siteInfo       //get basic site information
 $lf._               //call lodash directly, 
 $lf.$m              //call moment directly, 
 $lf.$md             //an middleware to specific auth required or is it api response and setup cache time, 
- 
+ ```
+
+### How to use middleware module for auth and cache
+``` js
+app.get("/admin/",$ lf.$md(
+        {
+            min:0, // cache time in min
+            key: function (req) { //optional, cache key, required redis setup,default value is following
+                return `${req.method}_${req.getUrl}`;
+            },
+            api:false, //specific response type, JSON API or page, default is page
+            auth:true, //is this page behind the authenciation or not, default is false
+            roles:["admin"]  //array type, which role can access this page, required set auth=true,and req.user.roles = []
+        }),(req,res,next)=>{
+           res.send("Hello world");
 ```
 
 ### config.json
@@ -58,8 +72,8 @@ $lf.$md             //an middleware to specific auth required or is it api respo
     "cssFolder": "src/webapp/static/css/",
     "jsHttp": "/static/js/",
     "cssHttp": "/static/css/",
-    "jsBuildFile":"src/webapp/static/js/build.json",
-    "cssBuildFile":"src/webapp/static/css/build.json"
+    "jsBuildFile":"./test/static/js/build.json",
+    "cssBuildFile":"test/static/css/build.json"
   },
   "cache":{
     //if you want to use redis, then need following node
@@ -76,6 +90,12 @@ $lf.$md             //an middleware to specific auth required or is it api respo
       "logout":"/logout", //optional
       "loginSuccessURL": "/admin", //optional
       "logoutSuccessURL": "/", //optional
+      "cookieOptions":{       //optional
+        "httpOnly": true,
+        "cookieAge": 7200000, // 2hr no need, as JWT will expired
+        "secure":true,
+        "expires": 0 //browser session only cookie
+      },
       //use jwt to encrypt the cookie base token
       "jwt": {
         "secret": {
@@ -87,7 +107,7 @@ $lf.$md             //an middleware to specific auth required or is it api respo
           "header": {
             "author": "LF"
           },
-          "subject": "JWT Token",
+          "subject": "@LinkFuture/Boot",
           "audience": "browser",
           "algorithm": "RS256",
           "issuer": "LINK FUTURE LLC"
@@ -95,14 +115,18 @@ $lf.$md             //an middleware to specific auth required or is it api respo
       },
      "method": "form",   //form or auth0 or null
      "auth0": {  //need append this if use auth0 as auth
-      "clientID": "0t1dsFyaYgmEnqdtfit188MhqlGuAluC",
-      "domain": "etalogin.auth0.com",
-      "clientSecret": "p96yE_KpXllavEifW0Gv3d9_lA9YnjH08y74q_fs2ijJtKAJgBqgMDs2fRRREjqY",
-      "responseType": "code",
-      "scope": "openid profile",
-      "audience": "https://etalogin.auth0.com/userinfo",
-      "callbackURL": "/callback"
+        "clientID": "0t1dsFyaYgmEnqdtfit188MhqlGuAluC",
+        "domain": "etalogin.auth0.com",
+        "clientSecret": "p96yE_KpXllavEifW0Gv3d9_lA9YnjH08y74q_fs2ijJtKAJgBqgMDs2fRRREjqY",
+        "responseType": "code",
+        "scope": "openid profile",
+        "audience": "https://etalogin.auth0.com/userinfo",
+        "callbackURL": "/callback"
     }
+      ,"mappings":[
+        {"pattern":"/admin/*","roles":["ADMIN"],"method":["get","post"]},
+        {"pattern":"/profile/*"}
+      ]
   },
   //Optional
   "helmet":{

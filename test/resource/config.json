@@ -26,6 +26,12 @@
       "logout":"/logout", //optional
       "loginSuccessURL": "/admin", //optional
       "logoutSuccessURL": "/", //optional
+      "cookieOptions":{       //optional
+        "httpOnly": true,
+        "cookieAge": 7200000, // 2hr no need, as JWT will expired
+        "secure":true,
+        "expires": 0 //browser session only cookie
+      },
       //use jwt to encrypt the cookie base token
       "jwt": {
         "secret": {
@@ -45,14 +51,18 @@
       },
      "method": "form",   //form or auth0 or null
      "auth0": {  //need append this if use auth0 as auth
-      "clientID": "0t1dsFyaYgmEnqdtfit188MhqlGuAluC",
-      "domain": "etalogin.auth0.com",
-      "clientSecret": "p96yE_KpXllavEifW0Gv3d9_lA9YnjH08y74q_fs2ijJtKAJgBqgMDs2fRRREjqY",
-      "responseType": "code",
-      "scope": "openid profile",
-      "audience": "https://etalogin.auth0.com/userinfo",
-      "callbackURL": "/callback"
+        "clientID": "0t1dsFyaYgmEnqdtfit188MhqlGuAluC",
+        "domain": "etalogin.auth0.com",
+        "clientSecret": "p96yE_KpXllavEifW0Gv3d9_lA9YnjH08y74q_fs2ijJtKAJgBqgMDs2fRRREjqY",
+        "responseType": "code",
+        "scope": "openid profile",
+        "audience": "https://etalogin.auth0.com/userinfo",
+        "callbackURL": "/callback"
     }
+      ,"mappings":[
+        {"pattern":"/admin/*","roles":["ADMIN"],"method":["get","post"]},
+        {"pattern":"/profile/*"}
+      ]
   },
   //Optional
   "helmet":{

@@ -12,5 +12,5 @@ output
 /*.tgz
 /logs/
 /test/
-!/linkfuture-boot-0.0.1.tgz
+*.tgz
 /report/

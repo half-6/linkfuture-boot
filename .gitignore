@@ -7,5 +7,5 @@ output
 /package-lock.json
 /*.tgz
 /logs/
-!/linkfuture-boot-0.0.1.tgz
+*.tgz
 /report/
