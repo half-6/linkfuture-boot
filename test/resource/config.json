@@ -19,7 +19,8 @@
         "disable_resubscribing": true
       },
       "prefix": "__LF.NODE__"
-    }
+    },
+    "method":"redis" //redis or local,default is local
   },
   "auth":{
       "login":"/login",  //optional

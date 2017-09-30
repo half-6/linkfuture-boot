@@ -18,6 +18,14 @@ global.$should = $chai.should();
 global.$assert = require('assert');
 global.$expect = $chai.expect;
 
+global.$async=function(fn)
+{
+    return (done) => {
+        Promise
+            .resolve(fn(done))
+            .catch(done);
+    };
+};
 //noinspection JSAnnotator
 global.$boot = (done)=>{
     //lf_boot.boot();
