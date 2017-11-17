@@ -1,5 +1,7 @@
 #Linkfuture boot
-An simple way to boot express. 
+An simple way to boot express.
+<span class="badge-npmversion"><a href="https://npmjs.org/package/@linkfuture/boot" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@linkfuture/boot.svg" alt="NPM version" /></a></span>
+<span class="badge-npmdownloads"><a href="https://npmjs.org/package/@linkfuture/boot" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@linkfuture/boot.svg" alt="NPM downloads" /></a></span> 
  
 ##Prerequisites 
 - nodejs 8.0 +
@@ -10,12 +12,14 @@ An simple way to boot express.
 const $consign = require('consign');
 const $path = require('path');
 //use lf boot
-const $lf_boot =require("@linkfuture/boot").web({
+const $meta = {
     root:[optional,default is application root],
     resourceroot:[optional,default is under /<root>/src/resource/],
     webroot:[optional,default is under /<root>/src/webapp/],
-});
-const app = $lf_boot.app;
+}
+const $lf_boot =require("@linkfuture/boot")($meta)
+const $lf_boot_web =require("@linkfuture/boot").web();
+const app = $lf_boot_web.app;
 //setup view engine 
 app.set('views', $path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
@@ -33,19 +37,21 @@ module.exports = app;
 ```
 ### how to run build 
 ``` js
-    "build": "node -e require('@linkfuture/boot').build().build(['sql'])"
+    "build": "node -e require('@linkfuture/boot')().build().build(['sql'])"
 ```
 ### Global object
  After init linkfuture-boot, you can use below global object directly, no need require("") 
 ``` js
+//Boot only
+$lf._               //call lodash directly, 
+$lf.$m              //call moment directly, 
 $lf.$config.config  //read config file
 $lf.$util           //utility method
 $lf.$cache          //store value into redis or static
 $lf.$logger.silly   //write log by using winston 
+//Web Boot only
 $lf.$auth           //auth model
 $lf.$siteInfo       //get basic site information
-$lf._               //call lodash directly, 
-$lf.$m              //call moment directly, 
 $lf.$md             //an middleware to specific auth required or is it api response and setup cache time, 
  ```
 
