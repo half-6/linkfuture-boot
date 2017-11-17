@@ -1,8 +1,9 @@
-#Linkfuture boot
-An simple way to boot express.
+#Linkfuture boot   
+An simple way to boot express.  
 <span class="badge-npmversion"><a href="https://npmjs.org/package/@linkfuture/boot" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@linkfuture/boot.svg" alt="NPM version" /></a></span>
 <span class="badge-npmdownloads"><a href="https://npmjs.org/package/@linkfuture/boot" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@linkfuture/boot.svg" alt="NPM downloads" /></a></span> 
-[![CircleCI](https://circleci.com/gh/cyokin/linkfuture-boot.svg?style=svg)](https://circleci.com/gh/cyokin/linkfuture-boot)
+<span class="badge-npmstatus"><a href="https://circleci.com/gh/cyokin/linkfuture-boot" title="View this project on NPM"><img src="https://img.shields.io/circleci/project/github/cyokin/linkfuture-boot.svg" alt="NPM downloads" /></a></span>
+
  
 ##Prerequisites 
 - nodejs 8.0 +
