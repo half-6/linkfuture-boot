@@ -1,6 +1,6 @@
 {
   "name": "@linkfuture/boot",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "LinkFuture boot, auto load all linkfuture related web libs",
   "main": "./lib/index.js",
   "author": {
@@ -14,6 +14,7 @@
   },
   "scripts": {
     "test": "mocha ./test/bin",
+    "check": "eslint .",
     "release": "npm version patch && npm publish --access=public"
   },
   "keywords": [
@@ -53,6 +54,14 @@
     "winston-daily-rotate-file": "^1.5.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "eslint": "^4.9.0",
+    "eslint-config-formidable": "^3.0.0",
+    "eslint-config-prettier": "^2.6.0",
+    "eslint-plugin-filenames": "^1.2.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-prettier": "^2.3.1",
+    "prettier": "^1.7.4",
     "amdefine": "^1.0.1",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",

@@ -3,15 +3,19 @@
  * on 1/9/2017.
  */
 process.env.PORT = 4000;
+process.env.DEBUG = "lf-boot";
+// process.env.NODE_ENV = "prod";
 global.$chai = require('chai');
 global.$chaiHttp = require('chai-http');
 const $path = require('path');
 const $root = require('app-root-path').toString();
 global.$meta = {
-    "resourceroot":$path.join($root,`test/resource/`)
+    "resourceroot":$path.join($root,`test/resource/`),
+    "webroot":$path.join($root,`test/`)
 };
-const lf_boot = require('../../lib/web')($meta);
-global.$app = lf_boot.app;
+global.$lf_boot = require('../../lib/index')($meta);
+global.$lf_boot_web = $lf_boot.web();
+global.$app = $lf_boot_web.app;
 
 $chai.use($chaiHttp);
 global.$should = $chai.should();
@@ -28,7 +32,7 @@ global.$async=function(fn)
 };
 //noinspection JSAnnotator
 global.$boot = (done)=>{
-    //lf_boot.boot();
+    $lf_boot_web.boot();
     done();
 };
 
@@ -58,7 +62,7 @@ global.$serverErrorVerify=(err,res)=>{
 };
 global.$apiSuccessVerify=(err,res)=>{
     (err == null).should.be.true;
-    $lf.$logger.info(res.body);
+    $lf.$logger.silly(res.body);
     res.should.be.a.json;
     res.body.should.have.property('response');
     (res.body.meta.status == 200).should.be.true;

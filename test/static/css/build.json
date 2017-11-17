@@ -1,0 +1,23 @@
+{
+  "admin-global":{
+    "output" :"output/admin-global.v1.min.css"
+  ,"files": [
+      "//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",
+      "//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+      "//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.css",
+      "libs/*.css",
+      "controls/*.css"
+    ]
+  },
+  "admin-index":{
+    "output" :"output/admin-index.v1.min.css"
+    ,"files": [
+          "admin/index.css"
+      ]
+  },
+  "html-page":{
+    "files": [
+      "../../html/**/*.css"
+    ]
+  }
+}

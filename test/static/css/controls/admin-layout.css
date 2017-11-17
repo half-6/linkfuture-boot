@@ -1,0 +1,136 @@
+nav.navbar-static-side{
+    z-index: 2001;
+    position: absolute;
+    width: 220px;
+    height: 100%;
+    top: 0;
+}
+.move{
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+}
+
+#layout-header .navbar-minimalize{
+    padding: 4px 12px;
+    margin: 14px 5px 5px 20px;
+    font-size: 14px;
+    float: left;
+}
+#layout-header .navbar-static-top {
+    background: #f3f3f4;
+    height: 60px;
+    margin-bottom: 0;
+}
+#layout-header a:hover , nav a:hover{
+    text-decoration: none;
+}
+
+.navbar-top-links{
+    padding: 4px 12px;
+    margin: 14px 5px 5px 20px;
+}
+.navbar-top-links li {
+    display: inline-block;
+}
+
+
+#layout-header,#layout-body,#layout-footer{
+    margin-left:220px;
+}
+
+
+
+/* metismenu  */
+
+.metismenu.nav > li > a {
+    /*color: #a7b1c2;*/
+    font-weight: 600;
+    padding: 14px 20px 14px 25px;
+}
+
+.metismenu .nav-second-level li a {
+    padding: 7px 10px 7px 52px;
+}
+
+.metismenu.nav > li.active {
+    border-left: 4px solid #19aa8d;
+}
+
+body.mini-navbar .navbar-default .nav li>a>span {
+    display: none;
+}
+body.mini-navbar .navbar-default .nav li>a>i {
+    font-size: 16px;
+}
+body.mini-navbar .navbar-static-side {
+    width: 70px;
+    overflow: visible;
+}
+body.mini-navbar #layout-header ,body.mini-navbar #layout-body,body.mini-navbar #layout-footer{
+    margin-left: 70px;
+}
+body.mini-navbar .nav .nav-second-level {
+    position: absolute;
+    left:  65px;
+    top: 0;
+    padding: 10px 10px 10px 10px;
+    min-width: 140px;
+    background-color: #f8f8f8;
+    border-radius: 0 2px 2px 0;
+}
+body.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
+    font-size: 12px;
+    border-radius: 3px;
+    padding: 10px 10px 10px 15px;
+}
+
+body.mini-navbar .logo-element {
+    display: block;
+}
+body.mini-navbar .profile-element{
+    display: none;
+}
+body.mini-navbar .nav-header {
+    padding: 0;
+}
+
+
+.metismenu .logo-element {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    display: none;
+    padding: 18px 0;
+}
+.metismenu .nav-header {
+    padding: 33px 25px;
+    /*background-color: #2f4050;*/
+}
+
+
+#layout-footer {
+    background: none repeat scroll 0 0 white;
+    border-top: 1px solid #e7eaec;
+    bottom: 0;
+    left: 0;
+    padding: 10px 20px;
+    position: absolute;
+    right: 0;
+}
+
+#layout-header h2 {
+    font-size: 24px;
+}
+
+@media (max-width: 768px)
+{
+    nav.navbar-static-side{
+        width: 0;
+        overflow: hidden;
+    }
+    #layout-header,#layout-body,#layout-footer{
+        margin-left:0;
+    }
+}

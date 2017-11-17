@@ -10,7 +10,11 @@ An simple way to boot express.
 const $consign = require('consign');
 const $path = require('path');
 //use lf boot
-const $lf_boot =require("@linkfuture/boot").web();
+const $lf_boot =require("@linkfuture/boot").web({
+    root:[optional,default is application root],
+    resourceroot:[optional,default is under /<root>/src/resource/],
+    webroot:[optional,default is under /<root>/src/webapp/],
+});
 const app = $lf_boot.app;
 //setup view engine 
 app.set('views', $path.join(__dirname, './views'));
@@ -61,6 +65,10 @@ app.get("/admin/",$ lf.$md(
 ```
 
 ### config.json
+- config file can either JS or JSON format
+- must under resource root folder. default resource root folder is under /<root>/src/resource/
+- it will always read and merge two config files. config.json and config.<env>.json.
+
 ``` js
 {
   //Optional, default value is base on NODE_ENV!='prod'

@@ -13,6 +13,7 @@ describe('Unit Test -- utility/logger.js',function () {
             $lf.$logger.verbose(msg,"verbose");
             $lf.$logger.info(msg,"info");
             $lf.$logger.warn(msg,"warn");
+            $lf.$logger.error(msg,new Error("my error message"));
             $lf.$logger.error(msg,"error");
         });
     });

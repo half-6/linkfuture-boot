@@ -7,7 +7,7 @@
  * on 1/9/2017.
  */
 describe('Unit Test -- controller/api/config.js',function () {
-    beforeEach(done => {
+    before(done => {
         global.$boot(done);
     });
     describe('config api', ()=> {
