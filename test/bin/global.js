@@ -4,6 +4,7 @@
  */
 process.env.PORT = 4000;
 process.env.DEBUG = "lf-boot";
+global.$isCI = process.env.NODE_ENV === 'ci';
 // process.env.NODE_ENV = "prod";
 global.$chai = require('chai');
 global.$chaiHttp = require('chai-http');

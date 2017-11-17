@@ -18,7 +18,7 @@ module.exports = {
             },
             "prefix": "__LF.NODE__"
         },
-        "method": "redis" //redis or local,default is local
+        "method": "local" //redis or local,default is local
     },
     "auth": {
         "login": "/login",  //optional

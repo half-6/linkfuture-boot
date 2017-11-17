@@ -9,7 +9,7 @@ describe('Unit Test -- utility/cache.js',function () {
         let test_key = "TEST";
         let test_value = {a:1,b:2};
 
-        it('redis', $async(async (done)=> {
+        !$isCI && it('redis', $async(async (done)=> {
             $lf.$cache.redis.set(test_key,test_value,1);
             let result = await $lf.$cache.redis.get(test_key);
             $expect(result).to.deep.equal(test_value);
@@ -19,7 +19,7 @@ describe('Unit Test -- utility/cache.js',function () {
             (null==result).should.be.true;
             done();
         }));
-        it('upset redis', $async(async (done)=> {
+        !$isCI && it('upset redis', $async(async (done)=> {
             let new_result = await $lf.$cache.redis.upsert(test_key,()=>{
                 return test_value;
             },1);
