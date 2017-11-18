@@ -9,3 +9,6 @@ cat jwtRS256.key
 cat jwtRS256.key.pub
 
 https://shields.io/
+
+>#### Redis client
+https://app.redislabs.com

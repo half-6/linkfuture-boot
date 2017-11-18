@@ -13,12 +13,12 @@ module.exports = {
         //if you want to use redis, then need following node
         "redis": {
             "options": {
-                "url": "redis://192.168.1.2:6379",
+                "url": "redis://linkfuture-demo:EB3A0D669E77133D28DCAA3386255F97@pub-redis-13941.us-west-2-1.1.ec2.garantiadata.com:13941",
                 "disable_resubscribing": true
             },
             "prefix": "__LF.NODE__"
         },
-        "method": "local" //redis or local,default is local
+        "method": "redis" //redis or local,default is local
     },
     "auth": {
         "login": "/login",  //optional
@@ -28,7 +28,7 @@ module.exports = {
         "cookieOptions": {       //optional
             "httpOnly": true,
             "cookieAge": 7200000, // 2hr no need, as JWT will expired
-            "secure": true,
+            "secure": false, //true if url is https, otherwise false
             "expires": 0 //browser session only cookie
         },
         //use jwt to encrypt the cookie base token
@@ -48,14 +48,14 @@ module.exports = {
                 "issuer": "LINK FUTURE LLC"
             }
         },
-        "method": "form",   //form or auth0 or null
+        "method": "form",   //auth0 or auth0 or null
         "auth0": {  //need append this if use auth0 as auth
-            "clientID": "0t1dsFyaYgmEnqdtfit188MhqlGuAluC",
-            "domain": "etalogin.auth0.com",
-            "clientSecret": "p96yE_KpXllavEifW0Gv3d9_lA9YnjH08y74q_fs2ijJtKAJgBqgMDs2fRRREjqY",
+            "clientID": "kRPDHIuos6tqpflh1I2ZJ7Hozmvb0FzV",
+            "domain": "linkfuture.auth0.com",
+            "clientSecret": "Tu6Wm0hN-1w2guOXlBQJM4lFBPVAof67J_OaFq3rV8JjV4cFF9kkOl94IJ1mieKR",
             "responseType": "code",
             "scope": "openid profile",
-            "audience": "https://etalogin.auth0.com/userinfo",
+            "audience": "https://linkfuture.auth0.com/userinfo",
             "callbackURL": "/callback"
         }
         , "mappings": [
