@@ -1,8 +1,9 @@
 #Linkfuture boot   
 An simple way to boot express.  
 <span class="badge-npmversion"><a href="https://npmjs.org/package/@linkfuture/boot" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@linkfuture/boot.svg" alt="NPM version" /></a></span>
-<span class="badge-npmdownloads"><a href="https://npmjs.org/package/@linkfuture/boot" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@linkfuture/boot.svg" alt="NPM downloads" /></a></span> 
-<span class="badge-npmstatus"><a href="https://circleci.com/gh/cyokin/linkfuture-boot" title="View this project on NPM"><img src="https://img.shields.io/circleci/project/github/cyokin/linkfuture-boot.svg" alt="NPM downloads" /></a></span>
+<span class="badge-npmdownloads"><a href="https://npmjs.org/package/@linkfuture/boot" title="NPM Download"><img src="https://img.shields.io/npm/dm/@linkfuture/boot.svg" alt="NPM downloads" /></a></span> 
+<span class="badge-npmstatus"><a href="https://circleci.com/gh/cyokin/linkfuture-boot" title="NPM Status"><img src="https://img.shields.io/circleci/project/github/cyokin/linkfuture-boot.svg" alt="NPM Status" /></a></span>
+<span class="badge-npmlicense"><a href="#license" title="License"><img src="https://img.shields.io/npm/l/@linkfuture/boot.svg?style=flat-square" alt="License" /></a></span>
 
  
 ##Prerequisites 
@@ -70,6 +71,7 @@ app.get("/admin/",$ lf.$md(
             roles:["admin"]  //array type, which role can access this page, required set auth=true,and req.user.roles = []
         }),(req,res,next)=>{
            res.send("Hello world");
+        })
 ```
 
 ### config.json
@@ -95,7 +97,7 @@ app.get("/admin/",$ lf.$md(
     //if you want to use redis, then need following node
     "redis": {
       "options": {
-        "url": "redis://192.168.1.2:6379",
+        "url": "redis://[redis URL]:6379",
         "disable_resubscribing": true
       },
       "prefix": "__LF.NODE__"
@@ -131,12 +133,12 @@ app.get("/admin/",$ lf.$md(
       },
      "method": "form",   //form or auth0 or null
      "auth0": {  //need append this if use auth0 as auth
-        "clientID": "0t1dsFyaYgmEnqdtfit188MhqlGuAluC",
-        "domain": "etalogin.auth0.com",
-        "clientSecret": "p96yE_KpXllavEifW0Gv3d9_lA9YnjH08y74q_fs2ijJtKAJgBqgMDs2fRRREjqY",
+        "clientID": "[auth0 clientID]",
+        "domain": "[auth0 domain]",
+        "clientSecret": "[auth0 clientSecret]",
         "responseType": "code",
         "scope": "openid profile",
-        "audience": "https://etalogin.auth0.com/userinfo",
+        "audience": "[auth0 audience]",
         "callbackURL": "/callback"
     }
       ,"mappings":[
@@ -157,7 +159,7 @@ app.get("/admin/",$ lf.$md(
   //Optional for api/config, default value is following
   "lf_admin":{
     "username":"admin"
-   ,"password":"qwer1234"
+   ,"password":"[admin password]"
   },
   //Optional for api/config, default value is following
   "error":{
