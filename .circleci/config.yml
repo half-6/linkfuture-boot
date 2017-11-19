@@ -26,15 +26,20 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: npm install
-
+      - run:
+          name: install-npm
+          command: npm install
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: npm run check
-      - run: npm run test
+      - run:
+          name: jslint-verify
+          command: npm run check
+      - run:
+          name: unit-test
+          command:  npm run test
 
 
