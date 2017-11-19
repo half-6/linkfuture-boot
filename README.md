@@ -1,16 +1,16 @@
-#Linkfuture boot   
-An simple way to boot express.  
+# Linkfuture boot   
 <span class="badge-npmversion"><a href="https://npmjs.org/package/@linkfuture/boot" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@linkfuture/boot.svg" alt="NPM version" /></a></span>
-<span class="badge-npmdownloads"><a href="https://npmjs.org/package/@linkfuture/boot" title="NPM Download"><img src="https://img.shields.io/npm/dm/@linkfuture/boot.svg" alt="NPM downloads" /></a></span> 
+<span class="badge-npmdownloads"><a href="https://npmjs.org/package/@linkfuture/boot" title="NPM Download"><img src="https://img.shields.io/npm/dm/@linkfuture/boot.svg" alt="NPM Download" /></a></span> 
 <span class="badge-npmstatus"><a href="https://circleci.com/gh/cyokin/linkfuture-boot" title="NPM Status"><img src="https://img.shields.io/circleci/project/github/cyokin/linkfuture-boot.svg" alt="NPM Status" /></a></span>
 <span class="badge-npmlicense"><a href="#license" title="License"><img src="https://img.shields.io/npm/l/@linkfuture/boot.svg?style=flat-square" alt="License" /></a></span>
 
+An simple way to boot express.  
  
-##Prerequisites 
+## Prerequisites 
 - nodejs 8.0 +
 - npm 5.0 + 
 
-##How to use it
+## How to use it
 ``` js
 const $consign = require('consign');
 const $path = require('path');
@@ -38,11 +38,11 @@ $lf_boot.boot();
 //for Mocha unit test only
 module.exports = app;
 ```
-### how to run build 
+## How to run build 
 ``` js
-    "build": "node -e require('@linkfuture/boot')().build().build(['sql'])"
+    "build": "node -e \"require('@linkfuture/boot')().build().build(['sql'])\"
 ```
-### Global object
+## Global object
  After init linkfuture-boot, you can use below global object directly, no need require("") 
 ``` js
 //Boot only
@@ -58,7 +58,7 @@ $lf.$siteInfo       //get basic site information
 $lf.$md             //an middleware to specific auth required or is it api response and setup cache time, 
  ```
 
-### How to use middleware module for auth and cache
+## How to use middleware module for auth and cache
 ``` js
 app.get("/admin/",$ lf.$md(
         {
@@ -74,7 +74,7 @@ app.get("/admin/",$ lf.$md(
         })
 ```
 
-### config.json
+## Config.json
 - config file can either JS or JSON format
 - must under resource root folder. default resource root folder is under /<root>/src/resource/
 - it will always read and merge two config files. config.json and config.<env>.json.
