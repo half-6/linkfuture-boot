@@ -86,12 +86,10 @@ app.get("/admin/",$ lf.$md(
   //Optional for static, default value is following
   "static": {
     "minify":false,
-    "jsFolder": "src/webapp/static/js/",
-    "cssFolder": "src/webapp/static/css/",
     "jsHttp": "/static/js/",
     "cssHttp": "/static/css/",
-    "jsBuildFile":"./test/static/js/build.json",
-    "cssBuildFile":"test/static/css/build.json"
+    "jsBuildFile":"/static/js/build.json",
+    "cssBuildFile":"/static/css/build.json"
   },
   "cache":{
     //if you want to use redis, then need following node
@@ -102,6 +100,7 @@ app.get("/admin/",$ lf.$md(
       },
       "prefix": "__LF.NODE__"
     }
+    "method": "redis" //redis or local,default is local
   },
   "auth":{
       "login":"/login",  //optional
@@ -111,7 +110,7 @@ app.get("/admin/",$ lf.$md(
       "cookieOptions":{       //optional
         "httpOnly": true,
         "cookieAge": 7200000, // 2hr no need, as JWT will expired
-        "secure":true,
+        "secure": false, //true if url is https, otherwise false
         "expires": 0 //browser session only cookie
       },
       //use jwt to encrypt the cookie base token
