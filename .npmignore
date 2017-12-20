@@ -10,3 +10,6 @@ output
 /logs/
 *.tgz
 /report/
+!/.circleci/
+/.eslintignore
+/.eslintrc

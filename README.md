@@ -40,7 +40,8 @@ module.exports = app;
 ```
 ## How to run build 
 ``` js
-    "build": "node -e \"require('@linkfuture/boot')().build().build(['sql'])\"
+    "build": "node -e \"require('@linkfuture/boot')().build().build(['js','css'],false)\"",  //default compress is true, you can set false 
+    "build SQL": "node -e \"require('@linkfuture/boot')().build().build(['sql'])\"",
 ```
 ## Global object
  After init linkfuture-boot, you can use below global object directly, no need require("") 

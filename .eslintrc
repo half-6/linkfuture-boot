@@ -12,7 +12,6 @@
     "valid-jsdoc":"off",
     "camelcase":"off",
     "no-use-before-define":"off",
-
     "no-magic-numbers": 0,
     "no-invalid-this": "off",
     "prettier/prettier": [
