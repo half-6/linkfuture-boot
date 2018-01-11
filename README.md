@@ -51,6 +51,7 @@ $lf._               //call lodash directly,
 $lf.$m              //call moment directly, 
 $lf.$config.config  //read config file
 $lf.$util           //utility method
+$lf.$request        //promise request with retry
 $lf.$cache          //store value into redis or static
 $lf.$logger.silly   //write log by using winston 
 //Web Boot only
