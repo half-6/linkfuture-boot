@@ -30,5 +30,18 @@ describe('Unit Test -- utility/request.js',function () {
           $lf.$logger.silly(JSON.stringify(r));
           done();
         }));
+	    it('request with failed', $async(async (done)=> {
+		    $lf.$request.retry("http://hibu.dashboard.int")({
+			    url:"/",
+			    "method": "GET",
+		    }).then(r=>{
+			    throw new Error("promise tried failed")
+		    }).catch((err)=>{
+				    $lf.$logger.warn(`retry failed as expected`);
+				    $lf.$logger.warn(err);
+				    (err.cause.code=="ENOTFOUND").should.be.true;
+				    done();
+			    })
+	    }));
     });
 });

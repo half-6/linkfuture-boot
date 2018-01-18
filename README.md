@@ -166,6 +166,13 @@ app.get("/admin/",$ lf.$md(
   "error":{
     "error400":"error400",
     "error500":"error500"
+  },
+  //Optional for retry
+  "retryOptions":{
+    "retries": 3,
+    "minTimeout": 1000,
+    "maxTimeout": 3000,
+    "randomize": true
   }
 }
 
