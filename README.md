@@ -177,3 +177,12 @@ app.get("/admin/",$ lf.$md(
 }
 
 ```
+
+## How to read config
+``` js
+//read config by default NODE_ENV
+$lf.$config.config.XXX 
+//read config by pass env
+const $config = $lf.$config.readEnvConfig('prod', $meta);
+$config.config.XXX
+```
