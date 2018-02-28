@@ -132,6 +132,14 @@ app.get("/admin/",$ lf.$md(
           "issuer": "LINK FUTURE LLC"
         }
       },
+      "event":{ //optional
+          "onLoginSuccess":function (res, user) {
+              $lf.$logger.silly("onLoginSuccess");
+          },
+          "onLogoutSuccess":function (res, user) {
+              $lf.$logger.silly("onLogoutSuccess");
+          }
+      },
      "method": "form",   //form or auth0 or null
      "auth0": {  //need append this if use auth0 as auth
         "clientID": "[auth0 clientID]",
@@ -141,7 +149,7 @@ app.get("/admin/",$ lf.$md(
         "scope": "openid profile",
         "audience": "[auth0 audience]",
         "callbackURL": "/callback"
-    }
+      }
       ,"mappings":[
         {"pattern":"/admin/*","roles":["ADMIN"],"method":["get","post"]},
         {"pattern":"/profile/*"}

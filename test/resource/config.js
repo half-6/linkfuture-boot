@@ -31,6 +31,14 @@ module.exports = {
             "secure": false, //true if url is https, otherwise false
             "expires": 0 //browser session only cookie
         },
+        "event":{ //optional
+            "onLoginSuccess":function (res, user) {
+                $lf.$logger.silly("onLoginSuccess");
+            },
+            "onLogoutSuccess":function (res, user) {
+                $lf.$logger.silly("onLogoutSuccess");
+            }
+        },
         //use jwt to encrypt the cookie base token
         "jwt": {
             "secret": {
