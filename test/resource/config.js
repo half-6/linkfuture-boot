@@ -68,9 +68,10 @@ module.exports = {
         },
     },
      "mappings": [
-       {"pattern": "/admin/*", "api":false,"auth":true,"roles": ["ADMIN"], "method": ["get", "post"]},
-	     {"pattern": "/api/*", "api":true},
-       {"pattern": "/api/cache","api":true,"min":10},
+	     {"pattern": "/admin/*", "auth":true, "roles": ["ETA Dashboard"], "method": ["get", "post"]},
+	     {"pattern": "/api/db", "api":false,"auth":true},
+	     {"pattern": "/api/login", "api":true,"auth":false},
+	     {"pattern": "/api/*", "api":true,"auth":true,"min":10, "roles": ["ETA Dashboard"]}
      ],
     //Optional
     "helmet": {
