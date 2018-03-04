@@ -65,12 +65,13 @@ module.exports = {
             "scope": "openid profile",
             "audience": "https://linkfuture.auth0.com/userinfo",
             "callbackURL": "/callback"
-        }
-        , "mappings": [
-            {"pattern": "/admin/*", "roles": ["ADMIN"], "method": ["get", "post"]},
-            {"pattern": "/profile/*"}
-        ]
+        },
     },
+     "mappings": [
+       {"pattern": "/admin/*", "api":false,"auth":true,"roles": ["ADMIN"], "method": ["get", "post"]},
+	     {"pattern": "/api/*", "api":true},
+       {"pattern": "/api/cache","api":true,"min":10},
+     ],
     //Optional
     "helmet": {
         "frameguard": false

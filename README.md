@@ -150,11 +150,15 @@ app.get("/admin/",$ lf.$md(
         "audience": "[auth0 audience]",
         "callbackURL": "/callback"
       }
-      ,"mappings":[
-        {"pattern":"/admin/*","roles":["ADMIN"],"method":["get","post"]},
-        {"pattern":"/profile/*"}
-      ]
   },
+  //Optional
+  "mappings": [
+    {"pattern": "/admin/*", "auth":true, "roles": ["ETA Dashboard"], "method": ["get", "post"]},
+    {"pattern": "/api/db", "api":true,"auth":false},
+    {"pattern": "/api/login", "api":true,"auth":false},
+    {"pattern": "/api/*", "api":true,"auth":true,"min":10, "roles": ["ETA Dashboard"]},
+    {"pattern": "/", "min":10}
+  ],
   //Optional
   "helmet":{
     "frameguard": false

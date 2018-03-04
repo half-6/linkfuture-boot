@@ -64,7 +64,7 @@ global.$serverErrorVerify=(err,res)=>{
 };
 global.$apiSuccessVerify=(err,res)=>{
     (err == null).should.be.true;
-    $lf.$logger.silly(res.body);
+    $lf.$logger.silly(JSON.stringify(res.body));
     res.should.be.a.json;
     res.body.should.have.property('response');
     (res.body.meta.status == 200).should.be.true;

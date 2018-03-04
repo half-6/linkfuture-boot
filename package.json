@@ -1,6 +1,6 @@
 {
   "name": "@linkfuture/boot",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "LinkFuture boot, auto load all linkfuture related web libs",
   "main": "./lib/index.js",
   "author": {
