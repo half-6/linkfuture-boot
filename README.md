@@ -153,7 +153,7 @@ app.get("/admin/",$ lf.$md(
   },
   //Optional
   "mappings": [
-    {"pattern": "/admin/*", "auth":true, "roles": ["ETA Dashboard"], "method": ["get", "post"]},
+    {"pattern": "/admin/*", "auth":true, "roles": ["ETA Dashboard"], "method": ["GET", "POST"]},
     {"pattern": "/api/db", "api":false,"auth":true},
     {"pattern": "/api/login", "api":true,"auth":false},
     {"pattern": "/api/*", "api":true,"auth":true,"min":10, "roles": ["ETA Dashboard"]}

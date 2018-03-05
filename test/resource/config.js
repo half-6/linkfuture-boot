@@ -67,12 +67,12 @@ module.exports = {
             "callbackURL": "/callback"
         },
     },
-     "mappings": [
-	     {"pattern": "/admin/*", "auth":true, "roles": ["ETA Dashboard"], "method": ["get", "post"]},
-	     {"pattern": "/api/db", "api":false,"auth":true},
-	     {"pattern": "/api/login", "api":true,"auth":false},
-	     {"pattern": "/api/*", "api":true,"auth":true,"min":10, "roles": ["ETA Dashboard"]}
-     ],
+    "mappings": [
+	    {"pattern": "/admin/*", "auth":true, "roles": ["ETA Dashboard"], "method": ["GET", "POST"]},
+	    {"pattern": "/api/db", "api":false,"auth":true},
+	    {"pattern": "/api/login", "api":true,"auth":false},
+	    {"pattern": "/api/*", "api":true,"auth":true,"min":10, "roles": ["ETA Dashboard"]}
+    ],
     //Optional
     "helmet": {
         "frameguard": false
