@@ -7,9 +7,11 @@
  * on 1/9/2017.
  */
 describe('Unit Test -- controller/api/config.js',function () {
+	  const $requester = $chai.request.agent($app);
+	  after(() => $requester.app.close());
     describe('config api', ()=> {
         it('get auth success', (done)=> {
-            $chai.request($app)
+	        $requester
                 .get(`/api/config`)
                 .auth($lf.$config.config.lf_admin.username, $lf.$config.config.lf_admin.password)
                 .end(function (err,res) {
@@ -18,7 +20,7 @@ describe('Unit Test -- controller/api/config.js',function () {
                 })
         });
         it('get auth error', (done)=> {
-            $chai.request($app)
+	        $requester
                 .get(`/api/config`)
                 .end(function (err,res) {
                     $unauthorizedVerify(err,res);

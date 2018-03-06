@@ -7,6 +7,9 @@
 describe('Unit Test -- utility/cache.js',function () {
     let test_key = "TEST";
     let test_value = {a:1,b:2};
+    after(function () {
+      $lf.$cache.factory.close();
+    })
     describe('redis client', ()=> {
         it('redis', $async(async (done)=> {
             $lf.$cache.redis.set(test_key,test_value,1);
