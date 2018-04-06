@@ -3,6 +3,7 @@
  * on 1/9/2017.
  */
 process.env.PORT = 4000;
+process.env.UNIT_TEST = true;
 process.env.DEBUG = "lf-boot";
 global.$isCI = process.env.NODE_ENV === 'ci';
 // process.env.NODE_ENV = "prod";
