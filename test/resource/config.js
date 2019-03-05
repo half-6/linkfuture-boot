@@ -94,10 +94,20 @@ module.exports = {
         "error500": "error500"
     },
 	  //Optional for error page, default value is following
-      "retryOptions":{
+    "retryOptions":{
         "retries": 3,
         "minTimeout": 1000,
         "maxTimeout": 3000,
         "randomize": true
+      },
+    //Optional, url proxy, forward request to target url.
+    "proxy":[
+      {
+        "url":"/api/proxy/*",
+        "forwardBaseUrl":"http://api.se.dev.qingshuxuetang.com/api/",
+        "headers":{}, //optional
+        "query":{}, //optional
+        "body":{} //optional
       }
+    ]
 }

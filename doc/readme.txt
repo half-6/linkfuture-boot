@@ -1,3 +1,4 @@
+# make sure "npm login" first
 npm version patch
 npm publish --access=public
 

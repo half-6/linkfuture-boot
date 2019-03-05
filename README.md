@@ -184,7 +184,17 @@ app.get("/admin/",$ lf.$md(
     "minTimeout": 1000,
     "maxTimeout": 3000,
     "randomize": true
-  }
+  },
+  //Optional, url proxy, forward request to target url.
+   "proxy":[
+     {
+       "url":"/api/proxy/*",
+       "forwardBaseUrl":"http://<domain>/api/",
+       "headers":{}, //optional
+       "query":{}, //optional
+       "body":{} //optional
+     }
+   ]
 }
 
 ```
