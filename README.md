@@ -21,7 +21,8 @@ const $meta = {
     webroot:[optional,default is under /<root>/src/webapp/],
 }
 const $lf_boot =require("@linkfuture/boot")($meta)
-const $lf_boot_web =require("@linkfuture/boot").web();
+const $lf_boot_web =require("@linkfuture/boot").web({beforeSetup:beforeSetupFun,afterSetup:afterSetupFun});
+//beforeSetupFun, useful for connect-history-api-fallback
 const app = $lf_boot_web.app;
 //setup view engine 
 app.set('views', $path.join(__dirname, './views'));

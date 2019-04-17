@@ -2,11 +2,12 @@
 npm version patch
 npm publish --access=public
 
+# local test
 npm pack
-npm install D:\Codes\LinkFuture.Boot\linkfuture-boot-0.0.14.tgz
+npm install D:\Codes\linkfuture\LinkFuture.Boot\linkfuture-boot-0.0.14.tgz
 
 
-How to generate JWT RS256 key
+# How to generate JWT RS256 key
 ssh-keygen -t rsa -b 4096 -f jwtRS256.key
 # Don't add passphrase
 openssl rsa -in jwtRS256.key -pubout -outform PEM -out jwtRS256.key.pub
