@@ -93,13 +93,16 @@ module.exports = {
         "error400": "error400",
         "error500": "error500"
     },
-	  //Optional for error page, default value is following
+	//Optional for request retry, default value is following
     "retryOptions":{
         "retries": 3,
         "minTimeout": 1000,
         "maxTimeout": 3000,
         "randomize": true
       },
+    "requestOptions":{
+        "timeout": 1500,
+    },
     //Optional, url proxy, forward request to target url.
     "proxy":[
       {
