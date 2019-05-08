@@ -23,7 +23,7 @@ describe('Unit Test -- controller/api/config.js',function () {
 	        $requester
                 .get(`/api/config`)
                 .end(function (err,res) {
-                    $unauthorizedVerify(err,res);
+                    $unauthorizedVerify(res.error,res);
                     done();
                 })
         });
