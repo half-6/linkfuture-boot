@@ -5,7 +5,20 @@
 
 
 describe('Unit Test -- utility/request.js',function () {
+    function verifyResult(r){
+        $lf.$logger.silly(JSON.stringify(r));
+        $chai.assert(r.body.length > 0, "body is null");
+        $chai.assert(r.statusCode === 200, "statusCode must 200");
+    }
     describe('request', ()=> {
+        it('request detail', $async(async (done)=> {
+            let r = await $lf.$request.retryDetail()({
+                url:"http://www.google.com",
+                "method": "GET",
+            })
+            verifyResult(r)
+            done();
+        }));
         it('request directly', $async(async (done)=> {
             let r = await $lf.$request({
                 url:"http://www.google.com",
@@ -19,7 +32,7 @@ describe('Unit Test -- utility/request.js',function () {
 	            url:"http://www.google.com",
 	            "method": "GET",
             })
-	          $lf.$logger.silly(JSON.stringify(r));
+            $lf.$logger.silly(JSON.stringify(r));
             done();
         }));
         it('request with global options', $async(async (done)=> {
@@ -27,15 +40,15 @@ describe('Unit Test -- utility/request.js',function () {
               url:"/",
               "method": "GET",
             })
-	          $lf.$logger.silly(JSON.stringify(r));
-              done();
+            $lf.$logger.silly(JSON.stringify(r));
+            done();
           }));
         it('request with retry options', $async(async (done)=> {
           let r = await $lf.$request.retry({baseUrl:"http://www.google.com"},{retries:2})({
             url:"/",
             "method": "GET",
           })
-          $lf.$logger.silly(JSON.stringify(r));
+            $lf.$logger.silly(JSON.stringify(r));
           done();
         }));
 	    it('request with failed', $async(async (done)=> {
