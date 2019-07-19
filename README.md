@@ -86,6 +86,7 @@ app.get("/admin/",$ lf.$md(
 {
   //Optional, default value is base on NODE_ENV!='prod'
   "debug": true,
+  "env":"${NODE_ENV}" //node env variable support, by using ${*}
   //Optional for static, default value is following
   "static": {
     "minify":false,

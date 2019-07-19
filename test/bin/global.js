@@ -5,6 +5,9 @@
 process.env.PORT = 4000;
 process.env.UNIT_TEST = true;
 process.env.DEBUG = "lf-boot";
+process.env.NODE_ENV = "dev";
+process.env.LF_TEMP = "lf";
+
 global.$isCI = process.env.NODE_ENV === 'ci';
 // process.env.NODE_ENV = "prod";
 //process.env.NODE_DEBUG= "request";

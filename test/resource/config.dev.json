@@ -1,3 +1,4 @@
 {
-   "debug":true
+   "debug":true,
+   "lfTest":"test-${UNIT_TEST}-d"
 }

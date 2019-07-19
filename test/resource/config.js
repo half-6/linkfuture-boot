@@ -1,6 +1,9 @@
 module.exports = {
     //Optional, default value is base on NODE_ENV!='prod'
     "debug": true,
+    "env":"test-${NODE_ENV}-a",
+    "lfTemp":"test-${LF_TEMP}-b",
+    "lfTest":"test-${UNIT_TEST}-c",
     //Optional for static, default value is following
     "static": {
         "minify": false,
