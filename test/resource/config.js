@@ -115,5 +115,12 @@ module.exports = {
         "query":{}, //optional
         "body":{} //optional
       }
-    ]
+    ],
+    //single application history mode
+    //reference connect-history-api-fallback for configuration detail
+    "history":{
+        "disableDotRule": false,
+        "verbose": false,
+        "htmlAcceptHeaders": ["text/html", "application/xhtml+xml"]
+    }
 }
