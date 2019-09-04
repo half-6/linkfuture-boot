@@ -4,7 +4,7 @@ npm publish --access=public
 
 # local test
 npm pack
-npm install D:\Codes\linkfuture\LinkFuture.Boot\linkfuture-boot-0.0.27.tgz
+npm install D:\Codes\linkfuture\LinkFuture.Boot\linkfuture-boot-0.0.29.tgz
 
 
 # How to generate JWT RS256 key
