@@ -4,6 +4,33 @@ module.exports = {
     "env":"test-${NODE_ENV}-a",
     "lfTemp":"test-${LF_TEMP}-b",
     "lfTest":"test-${UNIT_TEST}-c",
+
+    /*
+    * Optional,all configuration is same with request npm,
+    * but add apiForward and apiMethod
+    *    apiForward:for disable auto api forward
+    *    apiMethod: overwrite default api method
+    * */
+    "service":{
+        "test":{
+            "baseUrl": "https://httpstat.us/",
+            "400":{
+                "url": "400",
+                "method": "get",
+                "json": true,
+                "apiForward":false
+            },
+            "200":{
+                "url": "200",
+                "method": "get",
+                "apiMethod":["get","post"],
+                "json": true,
+                "qs":{
+                    "sleep":1000
+                }
+            }
+        }
+    },
     //Optional for static, default value is following
     "static": {
         "minify": false,
@@ -59,7 +86,7 @@ module.exports = {
                 "issuer": "LINK FUTURE LLC"
             }
         },
-        "method": "form",   //auth0 or auth0 or null
+        "method": null,   //auth0|form|null
         "auth0": {  //need append this if use auth0 as auth
             "clientID": "kRPDHIuos6tqpflh1I2ZJ7Hozmvb0FzV",
             "domain": "linkfuture.auth0.com",
@@ -71,6 +98,7 @@ module.exports = {
         },
     },
     "mappings": [
+        {"pattern": "/api/test/*", "api":true,"auth":false},
 	    {"pattern": "/admin/*", "auth":true, "roles": ["ETA Dashboard"], "method": ["GET", "POST"]},
 	    {"pattern": "/api/db", "api":false,"auth":true},
 	    {"pattern": "/api/login", "api":true,"auth":false},
@@ -104,7 +132,7 @@ module.exports = {
         "randomize": true
       },
     "requestOptions":{
-        "timeout": 1500,
+        "timeout": 5000,
     },
     //Optional, url proxy, forward request to target url.
     "proxy":[

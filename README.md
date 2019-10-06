@@ -95,6 +95,33 @@ app.get("/admin/",$ lf.$md(
     "jsBuildFile":"/static/js/build.json",
     "cssBuildFile":"/static/css/build.json"
   },
+   /*
+    * Optional,all configuration is same with request npm,
+    * but add apiForward and apiMethod
+    *    apiForward:for disable auto api forward
+    *    apiMethod: overwrite default api method
+    * */
+    "service":{
+        "test":{
+            "baseUrl": "https://httpstat.us/",
+            "400":{
+                "url": "400",
+                "method": "get",
+                "json": true,
+                "apiForward":false
+            },
+            "200":{
+                "url": "200",
+                "method": "get",
+                "apiMethod":["get","post"],
+                "json": true,
+                "qs":{
+                    "sleep":1000
+                }
+            }
+        }
+    },
+  //optional
   "cache":{
     //if you want to use redis, then need following node
     "redis": {
@@ -106,6 +133,7 @@ app.get("/admin/",$ lf.$md(
     }
     "method": "redis" //redis or local,default is local
   },
+  //optional
   "auth":{
       "login":"/login",  //optional
       "logout":"/logout", //optional
@@ -186,6 +214,10 @@ app.get("/admin/",$ lf.$md(
     "minTimeout": 1000,
     "maxTimeout": 3000,
     "randomize": true
+  },
+ //Optional for request
+  "requestOptions":{
+      "timeout": 15000,
   },
   //Optional, url proxy, forward request to target url.
    "proxy":[

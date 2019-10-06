@@ -5,7 +5,7 @@
 process.env.PORT = 4000;
 process.env.UNIT_TEST = true;
 process.env.DEBUG = "lf-boot";
-process.env.NODE_ENV = "dev";
+//process.env.NODE_ENV = "dev";
 process.env.LF_TEMP = "lf";
 
 global.$isCI = process.env.NODE_ENV === 'ci';
@@ -22,6 +22,7 @@ global.$meta = {
 global.$lf_boot = require('../../lib/index')($meta);
 global.$lf_boot_web = $lf_boot.web();
 global.$app = $lf_boot_web.app;
+$lf.$forward.forwardAll("/api");
 
 $chai.use($chaiHttp);
 global.$should = $chai.should();
@@ -58,13 +59,18 @@ global.$setGlobalAuth=(done)=>{
 };
 global.$unauthorizedVerify=(err,res)=>{
     (err != null).should.be.true;
-    $lf.$logger.info(err.message);
+    $lf.$logger.info($lf._.get(err,"message","missing error message"));
     res.should.have.status(401);
 };
 global.$serverErrorVerify=(err,res)=>{
-    (err != null).should.be.true;
-    $lf.$logger.info(err.message);
+    let error = err || res.error;
+    (error!=null).should.be.true;
+    $lf.$logger.info($lf._.get(error,"message"));
     res.should.have.status(500);
+};
+global.$server404Verify=(err,res)=>{
+    (err === null).should.be.true;
+    res.should.have.status(404);
 };
 global.$apiSuccessVerify=(err,res)=>{
     (err == null).should.be.true;

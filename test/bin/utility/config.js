@@ -7,7 +7,7 @@
 describe('Unit Test -- utility/config.js',function () {
     describe('config', ()=> {
         it('config', (done)=> {
-            let config_dev = $lf.$config;
+            let config_dev = $lf.$config.readEnvConfig('dev', $meta);
             $lf.$logger.silly(config_dev);
             $expect(config_dev.config.helmet).to.deep.equal({ frameguard: false });
 	        $expect(config_dev.config.static.minify).equal(false);
