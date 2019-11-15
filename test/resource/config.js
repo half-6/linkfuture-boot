@@ -14,13 +14,25 @@ module.exports = {
     "service":{
         "test":{
             "baseUrl": "https://httpstat.us/",
-            "400":{
+            "r400":{
                 "url": "400",
                 "method": "get",
                 "json": true,
                 "apiForward":false
             },
-            "200":{
+            "r200":{
+                "url": "200",
+                "method": "get",
+                "apiMethod":["get","post"],
+                "json": true,
+                "qs":{
+                    "sleep":1000
+                }
+            }
+        },
+        "success":{
+            "baseUrl": "https://httpstat.us/",
+            "r200":{
                 "url": "200",
                 "method": "get",
                 "apiMethod":["get","post"],

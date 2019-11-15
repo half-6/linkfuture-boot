@@ -37,5 +37,32 @@ describe('Unit Test -- utility/util.js',function () {
 				    done();
 		    })
 	    }));
+		it('promise all', $async(async (done)=> {
+			let r = await $lf.$util.promiseAll(
+				{
+					r200:$lf.$repository.test.r200({qs:{a:1}}),
+					r400:$lf.$repository.test.r400({qs:{a:1}}),
+					successR200:$lf.$repository.success.r200({qs:{a:1}})
+				},)
+			$lf.$logger.silly("done" + JSON.stringify(r));
+			(r.r200.code===200).should.be.true;
+			(r.r400===undefined).should.be.true;
+			(r.successR200.code===200).should.be.true;
+			done();
+		}));
+		it('promise all error', $async(async (done,failed)=> {
+			try{
+				let r = await $lf.$util.promiseAll(
+					{
+						r200:$lf.$repository.test.r200({qs:{a:1}}),
+						r400:$lf.$repository.test.r400({qs:{a:1}}),
+					},false)
+				failed("it should throw error")
+			}
+			catch (e) {
+				$lf.$logger.silly("error" + JSON.stringify(e));
+				done();
+			}
+		}));
     });
 });
