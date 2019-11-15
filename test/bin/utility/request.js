@@ -86,5 +86,23 @@ describe('Unit Test -- utility/request.js',function () {
                 done();
             })
         }));
+        it('repositories', $async(async (done,failed)=> {
+            const repositories = $lf.$request.repositories();
+            $assert(repositories.test["400"].constructor.name === "AsyncFunction")
+            $assert(repositories.test["200"].constructor.name === "AsyncFunction")
+            done();
+        }));
+        it('repository', $async(async (done,failed)=> {
+            const repositories = $lf.$request.repository($lf.$config.config.service.test);
+            $assert(repositories["400"].constructor.name === "AsyncFunction")
+            $assert(repositories["200"].constructor.name === "AsyncFunction")
+            done();
+        }));
+        it('global repositories', $async(async (done,failed)=> {
+            const repositories = $lf.$repository;
+            $assert(repositories.test["400"].constructor.name === "AsyncFunction")
+            $assert(repositories.test["200"].constructor.name === "AsyncFunction")
+            done();
+        }));
     });
 });

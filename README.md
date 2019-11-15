@@ -22,6 +22,7 @@ const $meta = {
 }
 const $lf_boot =require("@linkfuture/boot")($meta)
 const $lf_boot_web =require("@linkfuture/boot").web({beforeSetup:beforeSetupFun,afterSetup:afterSetupFun});
+
 //beforeSetupFun, useful for connect-history-api-fallback
 const app = $lf_boot_web.app;
 //setup view engine 
@@ -34,6 +35,11 @@ $consign({logger:$lf.$logger})
     .then("src/bin/service")
     .then("src/bin/controller")
     .into(app);
+
+//forward all requests to external service you configed at $lf.$config.config.service 
+$lf.$forward.forwardAll("/api"); 
+
+//boot application
 $lf_boot.boot();
 
 //for Mocha unit test only
@@ -55,6 +61,8 @@ $lf.$util           //utility method
 $lf.$request        //promise request with retry
 $lf.$cache          //store value into redis or static
 $lf.$logger.silly   //write log by using winston 
+$lf.$repository     //generate async function as repository base on configuration node "service", set serviceToRepository = false to off that feature
+                    //example: $lf.$repository.test.h400({qs:{a:1,b:2}})
 //Web Boot only
 $lf.$auth           //auth model
 $lf.$siteInfo       //get basic site information
@@ -100,17 +108,18 @@ app.get("/admin/",$ lf.$md(
     * but add apiForward and apiMethod
     *    apiForward:for disable auto api forward
     *    apiMethod: overwrite default api method
+    *    repository:true, default is true, for disable auto repository
     * */
     "service":{
         "test":{
             "baseUrl": "https://httpstat.us/",
-            "400":{
+            "h400":{
                 "url": "400",
                 "method": "get",
                 "json": true,
                 "apiForward":false
             },
-            "200":{
+            "h200":{
                 "url": "200",
                 "method": "get",
                 "apiMethod":["get","post"],
@@ -121,6 +130,7 @@ app.get("/admin/",$ lf.$md(
             }
         }
     },
+  "serviceToRepository":true, //default is true
   //optional
   "cache":{
     //if you want to use redis, then need following node

@@ -31,6 +31,7 @@ module.exports = {
             }
         }
     },
+    "serviceToRepository":true, //default is true
     //Optional for static, default value is following
     "static": {
         "minify": false,

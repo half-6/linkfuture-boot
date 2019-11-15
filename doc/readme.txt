@@ -1,5 +1,6 @@
 # make sure "npm login" first
 npm version patch
+npm run check && npm run test
 npm publish --access=public
 
 # local test
