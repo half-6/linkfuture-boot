@@ -145,9 +145,10 @@ app.get("/admin/",$ lf.$md(
   },
   //optional
   "auth":{
-      "login":"/login",  //optional
-      "logout":"/logout", //optional
-      "loginSuccessURL": "/admin", //optional
+      "login": "/login",  //optional
+      "info": "/info",  //optional
+      "logout": "/logout", //optional
+      "loginSuccessURL": "/", //optional
       "logoutSuccessURL": "/", //optional
       "cookieOptions":{       //optional
         "httpOnly": true,

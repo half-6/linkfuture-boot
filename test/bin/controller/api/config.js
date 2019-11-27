@@ -11,10 +11,18 @@ describe('Unit Test -- controller/api/config.js',function () {
 	  after(() => $requester.app.close());
     describe('config api', ()=> {
         it('get auth success', (done)=> {
+            let myHeadKey="some_custom_attribute";
+            let myHeadValue="some_value";
 	        $requester
                 .get(`/api/config`)
+                .set(myHeadKey, myHeadValue)
                 .auth($lf.$config.config.lf_admin.username, $lf.$config.config.lf_admin.password)
                 .end(function (err,res) {
+                    res.body.response.should.have.property("memory")
+                    res.body.response.should.have.property("config")
+                    res.body.response.should.have.property("env")
+                    res.body.response.should.have.property("header")
+                    $assert(res.body.response.header[myHeadKey] === myHeadValue);
                     $apiSuccessVerify(err,res);
                     done();
                 })
