@@ -8,8 +8,9 @@ module.exports = {
     /*
     * Optional,all configuration is same with request npm,
     * but add apiForward and apiMethod
-    *    apiForward:for disable auto api forward
+    *    apiForward: for disable auto api forward
     *    apiMethod: overwrite default api method
+    *    apiPath: overwrite default api path, default /{baseUrl}/test/r200
     * */
     "service":{
         "test":{
