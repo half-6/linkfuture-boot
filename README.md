@@ -1,7 +1,7 @@
 # Linkfuture boot   
 <span class="badge-npmversion"><a href="https://npmjs.org/package/@linkfuture/boot" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@linkfuture/boot.svg" alt="NPM version" /></a></span>
 <span class="badge-npmdownloads"><a href="https://npmjs.org/package/@linkfuture/boot" title="NPM Download"><img src="https://img.shields.io/npm/dm/@linkfuture/boot.svg" alt="NPM Download" /></a></span> 
-<span class="badge-npmstatus"><a href="https://circleci.com/gh/cyokin/linkfuture-boot" title="NPM Status"><img src="https://img.shields.io/circleci/project/github/cyokin/linkfuture-boot.svg" alt="NPM Status" /></a></span>
+<span class="badge-npmstatus"><a href="https://circleci.com/gh/half-6/linkfuture-boot" title="NPM Status"><img src="https://img.shields.io/circleci/project/github/half-6/linkfuture-boot.svg" alt="NPM Status" /></a></span>
 <span class="badge-npmlicense"><a href="#license" title="License"><img src="https://img.shields.io/npm/l/@linkfuture/boot.svg?style=flat-square" alt="License" /></a></span>
 
 An simple way to boot express.  
@@ -36,8 +36,9 @@ $consign({logger:$lf.$logger})
     .then("src/bin/controller")
     .into(app);
 
-//forward all requests to external service you configed at $lf.$config.config.service 
-$lf.$forward.forwardAll("/api"); 
+//forward all requests to external service you configed at $lf.$config.config.service
+//option = {beforeForward(apiPath, configName, option, req),afterForward(apiPath, configName, option, req)} 
+$lf.$forward.forwardAll("/api",option); 
 
 //boot application
 $lf_boot.boot();
