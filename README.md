@@ -106,10 +106,10 @@ app.get("/admin/",$ lf.$md(
   },
    /*
     * Optional,all configuration is same with request npm,
-    * but add apiForward and apiMethod
+    * but add following options
     *    apiForward:for disable auto api forward, default is true
     *    apiMethod: overwrite default api method, default is request method
-    *    apiPath: overwrite default api path, default is /{baseUrl}/test/r200
+    *    apiPath: overwrite default api path, default is /{base API Url}/test/r200
     *    repository: default is true, for disable auto repository
     * */
     "service":{
@@ -120,7 +120,7 @@ app.get("/admin/",$ lf.$md(
                 "method": "get",
                 "json": true,
                 "apiForward":false
-                "apiPath":"my-path",   //this api path is /{baseUrl}/my-path, overwrite default path /{baseUrl}/test/h400
+                "apiPath":"my-path",   //this api path is /{base API Url}/my-path, overwrite default path /{base API Url}/test/h400
             },
             "h200":{
                 "url": "200",

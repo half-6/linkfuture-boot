@@ -18,6 +18,14 @@ describe('Unit Test -- utility/forward.js',function () {
                     done();
                 })
         });
+        it('get 200 success for using apiPath', (done)=> {
+            $requester
+                .get(`/api/test/my-path`)
+                .end(function (err,res) {
+                    $apiSuccessVerify(err,res);
+                    done();
+                })
+        });
         it('get 500 error', (done)=> {
             $requester
                 .get(`/api/test/r-200?sleep=10000`)

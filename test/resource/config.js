@@ -7,10 +7,11 @@ module.exports = {
 
     /*
     * Optional,all configuration is same with request npm,
-    * but add apiForward and apiMethod
+    * but add following options
     *    apiForward: for disable auto api forward
     *    apiMethod: overwrite default api method
-    *    apiPath: overwrite default api path, default /{baseUrl}/test/r200
+    *    apiPath: overwrite default api path, default is /{base API Url}/test/r200
+    *    repository: default is true, for disable auto repository
     * */
     "service":{
         "test":{
@@ -26,6 +27,16 @@ module.exports = {
                 "method": "get",
                 "apiMethod":["get","post"],
                 "json": true,
+                "qs":{
+                    "sleep":1000
+                }
+            },
+            "r300":{
+                "url": "200",
+                "method": "get",
+                "apiMethod":["get","post"],
+                "json": true,
+                "apiPath":"my-path",
                 "qs":{
                     "sleep":1000
                 }
