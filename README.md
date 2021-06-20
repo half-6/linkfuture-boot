@@ -229,11 +229,11 @@ app.get("/admin/",$ lf.$md(
     "maxTimeout": 3000,
     "randomize": true
   },
- //Optional for request
+  //Optional for request
   "requestOptions":{
       "timeout": 15000,
   },
-  //Optional, url proxy, forward request to target url.
+   //Optional, url proxy, forward request to target url.
    "proxy":[
      {
        "url":"/api/proxy/*",
@@ -242,7 +242,14 @@ app.get("/admin/",$ lf.$md(
        "query":{}, //optional
        "body":{} //optional
      }
-   ]
+   ],
+   //single application history mode
+   //reference connect-history-api-fallback for configuration detail
+   "history":{
+        "disableDotRule": false,
+        "verbose": false,
+        "htmlAcceptHeaders": ["text/html", "application/xhtml+xml"]
+   }
 }
 
 ```
