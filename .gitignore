@@ -4,7 +4,6 @@ output
 *.iml
 *.log
 /src/webapp/doc/
-/package-lock.json
 /*.tgz
 /logs/
 *.tgz

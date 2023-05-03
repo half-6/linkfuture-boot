@@ -1,6 +1,6 @@
 {
   "name": "@linkfuture/boot",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "description": "LinkFuture boot, auto load all linkfuture related web libs",
   "main": "./lib/index.js",
   "author": {
@@ -50,7 +50,7 @@
     "passport-auth0": "^0.6.1",
     "passport-http": "^0.3.0",
     "promise-retry": "^1.1.1",
-    "redis": ">=3.1.1",
+    "redis": "3.1.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
     "stack-trace": "0.0.10",
