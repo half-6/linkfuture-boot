@@ -43,6 +43,14 @@ describe('Unit Test -- utility/request.js',function () {
             $lf.$logger.silly(JSON.stringify(r));
             done();
           }));
+        it('request with string based global options', $async(async (done)=> {
+            let r = await $lf.$request.retry("http://www.google.com")({
+                url:"/",
+                "method": "GET",
+            })
+            $lf.$logger.silly(JSON.stringify(r));
+            done();
+        }));
         it('request with retry options', $async(async (done)=> {
           let r = await $lf.$request.retry({baseUrl:"http://www.google.com"},{retries:2})({
             url:"/",
